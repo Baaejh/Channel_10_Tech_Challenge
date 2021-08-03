@@ -1,4 +1,4 @@
-# Channel_10_Tech_Challenge
+# Network_10_Tech_Challenge
 Submission for the Channel 10 Junior Developer technical Assessment
 
 
