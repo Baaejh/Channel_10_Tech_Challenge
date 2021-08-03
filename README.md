@@ -6,6 +6,9 @@ Submission for the Channel 10 Junior Developer technical Assessment
 
 This Application Exposes a REST API endpoint via a localhost connection, the application will accept client HTTP POST requests in a CSV format, the CSV data is aggregated and returned back to the client in JSON format.
 
+The 'Tech_Assessment_Submission' folder on the main branch Contains the Applications Source code [Channel_10
+-Assessment.py] and a small sample set of CSV data in the required format.
+
 The CSV data that is used/tested by this API Application endpoint can be downloaded from:
   - https://data.nsw.gov.au/data/dataset/60616720-3c60-4c52-b499-751f31e3b132/resource/945c6204-272a-4cad-8e33-dde791f5059a/download/pcr_testing_table1_location.csv
 
