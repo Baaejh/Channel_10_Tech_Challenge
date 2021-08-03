@@ -1,12 +1,12 @@
 # Network_10_Tech_Challenge
-Submission for the Channel 10 Junior Developer technical Assessment
+Submission for the Network 10 Junior Developer technical Assessment
 
 
 **About:** 
 
 This Application Exposes a REST API endpoint via a localhost connection, the application will accept client HTTP POST requests in a CSV format, the CSV data is aggregated and returned back to the client in JSON format.
 
-The 'Tech_Assessment_Submission' folder on the main branch Contains the Applications Source code [Channel_10
+The 'Tech_Assessment_Submission' folder on the main branch Contains the Applications Source code [Network_10
 -Assessment.py] and a small sample set of CSV data in the required format.
 
 The CSV data that is used/tested by this API Application endpoint can be downloaded from:
