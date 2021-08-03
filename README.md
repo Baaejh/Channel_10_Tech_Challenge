@@ -1,18 +1,53 @@
 # Channel_10_Tech_Challenge
-Submission for timed Technical Assessment @ channel 10
+Submission for the Channel 10 Junior Developer technical Assessment
 
-Overview:
-After reading the challenge description for quite some time i was unsure of what exactly the question was asking (am i to query the API server and work with the returned CSV data, or was i suppost to create some sort of API type service that accepts requests in the form of CSV data and return a JSON response query ?) My understanding originally was that i could query the API, recieve CSV data, process the data and return the processed CSV data in JSON format.
 
-NOTE: in my previous experiences developing i have only ever queried API services with JavaScript and have never worked with CSV formatting, Only JSON.
+**About:** 
 
-I decided that i would try and complete the challenge based on recieving a CSV type response from the API service, but realised that i could not seem to connect/recieve a response and or download anything CSV related (Error: 504 -> Screenshots attatched)
+This Application Exposes a REST API endpoint via a localhost connection, the application will accept client HTTP POST requests in a CSV format, the CSV data is aggregated and returned back to the client in JSON format.
 
-This lead to me only being able too succesfully recieve a JSON resposne from the API server, so i created a basic script that just query's the API server and returns the basic JSON data.
+The CSV data that is used/tested by this API Application endpoint can be downloaded from:
+  - https://data.nsw.gov.au/data/dataset/60616720-3c60-4c52-b499-751f31e3b132/resource/945c6204-272a-4cad-8e33-dde791f5059a/download/pcr_testing_table1_location.csv
 
-I decided to Improvise and decided to create another script that works on the sample CSV data that i was able to download from: "https://data.nsw.gov.au/data/dataset/nsw-covid-19-tests-by-location/resource/945c6204-272a-4cad-8e33-dde791f5059a"
-the goal was to read in the CSV data by reading it in from the same directory the the Python Script is located within, just so i can work on formatting and working with the CSV formatted data.
 
-Due to the File Size limit on gitHub, i was only able to include a small subsection of the original Test CSV file, the Fullsize test file available from the API Webpage can be replaced
 
-I believe that there is a way that the CSV data can be queried via SQL, but due to the Timeout errors, and my lack of experience with querying/formatting CSV files, i did what i could to format the CSV data in python and returned a JSON object that somewhat resembled the requested JSON object, i was able to generate a count for the dates of each test but did not have enough time to actually display the highest / Lowest counts, so the fullsize CSV file displays a large object contaning the Date data.
+**Requirements:**
+
+This Application is developed in Python (v3.9) and also relies on the 'Flask' (v2.0.1) web framework for handling and processing client 'POST' requests. The HTTP POST requests used for testing this API endpoint were conducted via 'Postman'. 
+
+The following list contains the entire list of modules & softwares required for this application:
+  
+```
+* Python - (This Application was created with v3.9)
+* Flask Web Framework - (This Application was created with v2.0.1)
+* Python Modules: [flask, csv, json, io]
+```
+
+
+**Setup [Host / Port]:**
+
+This API application is designed to work via a localhost connection, the flask instance listens on the following host/port:
+```
+- HOST: 127.0.0.1
+- PORT: 8000
+(NOTE: if the selected port of 8000 is in use the port No. can be updated within the source code)
+```
+
+
+**Setup [HTTP POST Request]:**
+
+The client must access the API at the following endpoint:
+```
+Endpoint: /CSV_Request
+Full API Endpoint: http://127.0.0.1:8000/CSV_Request
+```
+
+The client requests body must also contain the following information/data
+```
+POST Request type: 'form-data'
+KEY: 'CSV_data'
+VALUE: RAW CSV DATA / CSV File
+
+```
+**NOTE: The 'setup' folder contains an image of the postman HTTP Request settings**
+
