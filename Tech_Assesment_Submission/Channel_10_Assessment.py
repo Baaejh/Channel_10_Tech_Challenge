@@ -76,7 +76,7 @@ def process_client_request(client_request):
 def aggregate_dates(request_data):
     for lga_name_key in request_data.keys():
         greatest_template = {"count": 0, "date": ""}
-        least_template = {"count": 2, "date": ""}
+        least_template = {"count": float('inf'), "date": ""}
 
         for date in request_data[lga_name_key]['test_date_count']:
             if request_data[lga_name_key]['test_date_count'][date] > greatest_template['count']: 
