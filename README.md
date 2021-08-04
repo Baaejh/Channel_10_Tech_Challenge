@@ -39,10 +39,10 @@ This API application is designed to work via a localhost connection, the flask i
 
 **Setup [HTTP POST Request]:**
 
-The client must access the API at the following endpoint:
+The client must access the API at the following endpoints:
 ```
-Endpoint: /CSV_Request
-Full API Endpoint: http://127.0.0.1:8000/CSV_Request
+Endpoint_1: http://127.0.0.1:8000/
+Endpoint 2: http://127.0.0.1:8000/CSV_Request
 ```
 
 The client requests body must also contain the following information/data
@@ -57,7 +57,7 @@ VALUE: RAW CSV DATA / CSV File
 
 **Using this Application:**
 
-After the required softwares/technologies mentioned above are installed and ready to go, the user must ensure that the Python File --> (Network_10_Assessment.py) is running, ensuring that the application is actively listening/accepting requests at the desired address/port - [http://127.0.0.1:8000/CSV_Request].
+After the required softwares/technologies mentioned above are installed and ready to go, the user must ensure that the Python File --> (Network_10_Assessment.py) is running, ensuring that the application is actively listening/accepting requests at the desired address/port - [http://127.0.0.1:8000/]  OR  [http://127.0.0.1:8000/CSV_Request].
 
 Once the Python script has been executed, and is actively accepting connections, the HTTP POST request containing the .CSV data may be made to the localhost address mentioned above, the desired JSON response should then be returned to the client that made the request.
 
