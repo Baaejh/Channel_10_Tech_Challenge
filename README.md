@@ -54,3 +54,10 @@ VALUE: RAW CSV DATA / CSV File
 ```
 **NOTE: The 'setup' folder contains an image of the postman HTTP Request settings**
 
+
+**Using this Application:**
+
+After the required softwares/technologies mentioned above are installed and ready to go, the user must ensure that the Python File --> (Network_10_Assessment.py) is running, ensuring that the application is actively listening/accepting requests at the desired address/port - [http://127.0.0.1:8000/CSV_Request].
+
+Once the Python script has been executed, and is actively accepting connections, the HTTP POST request containing the .CSV data may be made to the localhost address mentioned above, the desired JSON response should then be returned to the client that made the request.
+
