@@ -75,7 +75,7 @@ def process_client_request(client_request):
         return 'An error occoured Handling the request ... Try Again'
 
 
-# Handles the logic behind finsing the greatest/least test dates
+# Handles the logic behind greatest/least count and orders data by 'total_count'
 def aggregate_data(request_data):
     aggregated_data = request_data
     finalised_data = []
