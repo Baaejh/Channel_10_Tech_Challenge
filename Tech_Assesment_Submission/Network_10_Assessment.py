@@ -5,7 +5,6 @@
 import csv
 import json
 import io
-from typing import final
 from flask import Flask, request
 
 # Flask application instance
@@ -129,11 +128,3 @@ if __name__ == '__main__':
     # Start flask instance (localhost, port: 8000)
         # NOTE: if port is in use update port parameter below
     flask_instance.run(host='127.0.0.1', port=8000)
- 
-    
-     
-
-
-
-
-
