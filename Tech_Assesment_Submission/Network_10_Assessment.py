@@ -5,6 +5,7 @@
 import csv
 import json
 import io
+from typing import final
 from flask import Flask, request
 
 # Flask application instance
@@ -67,7 +68,7 @@ def process_client_request(client_request):
                     pre_aggregated_data[lga_name]['test_date_count'] = {test_date: 1}
 
         # calls function to find greatest / least dates & update aggregated_data
-        return aggregate_dates(pre_aggregated_data)
+        return aggregate_data(pre_aggregated_data)
 
     except Exception as process_request_exception:
         print(process_request_exception)
@@ -76,29 +77,40 @@ def process_client_request(client_request):
 
 
 # Handles the logic behind finsing the greatest/least test dates
-def aggregate_dates(request_data):
-
+def aggregate_data(request_data):
     aggregated_data = request_data
+    finalised_data = []
 
-    for lga_name_key in request_data.keys():
+    # *** GREATEST/LEAST LOGIC ***
+        # loops through Keys and find the largest / smallest counts of each date
+    for lga_name_key in aggregated_data.keys():
         greatest_template = {"count": 0, "date": ""}
         least_template = {"count": float('inf'), "date": ""}
 
-        for date in request_data[lga_name_key]['test_date_count'].keys():
-            if request_data[lga_name_key]['test_date_count'][date] > greatest_template['count']: 
-                greatest_template['count'] = request_data[lga_name_key]['test_date_count'][date]
+        for date in aggregated_data[lga_name_key]['test_date_count'].keys():
+            if aggregated_data[lga_name_key]['test_date_count'][date] > greatest_template['count']: 
+                greatest_template['count'] = aggregated_data[lga_name_key]['test_date_count'][date]
                 greatest_template['date'] = date
 
-            if request_data[lga_name_key]['test_date_count'][date] < least_template['count']:
-                least_template['count'] = request_data[lga_name_key]['test_date_count'][date] 
+            if aggregated_data[lga_name_key]['test_date_count'][date] < least_template['count']:
+                least_template['count'] = aggregated_data[lga_name_key]['test_date_count'][date] 
                 least_template['date'] = date
 
         # filling the greatest / least dates and removing excess data
         aggregated_data[lga_name_key]['greatest'] = greatest_template
         aggregated_data[lga_name_key]['least'] = least_template
-        aggregated_data[lga_name_key].pop('test_date_count')  
+        aggregated_data[lga_name_key].pop('test_date_count')
+
+    # *** SORTING BY 'total_count' LOGIC ***
+        # Creates a list ordering the data by the 'total_count'
+    total_count_SORTED = sorted(aggregated_data, key=lambda x: (aggregated_data[x]['total_count']), reverse = True)
     
-    return return_JSON_object(aggregated_data)
+    # fills the 'finalised_list' with the aggregated CSV Data - ordered by 'total_count'
+    for location in total_count_SORTED:
+        finalised_data.append(aggregated_data[location])
+
+    # returning / calling function that converts 'finalised_data' into JSON format
+    return return_JSON_object(finalised_data)
 
 
 # converts data into a JSON object
